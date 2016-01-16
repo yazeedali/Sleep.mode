@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Sleep mode </string>
+    <string name="info1">"About
+
+Made by
+yazeed ali
+noody63
+
+made in
+Kingdom of Saudi Arabia
+
+Release : 1.0.0
+
+Translators
+
+english-Default
+Arabic-Default
+
+Date created : 1-2016
+
+        Note : The program is not responsible for any problem occur phone
+
+"</string>
+    <string name="action_settings">Settings</string>
+    <string name="info">About</string>
+</resources>
