@@ -55,7 +55,7 @@ public class main extends AppCompatActivity {
                 wifiManager.setWifiEnabled(false);
                 bluetoothAdapter.disable();
                 audio.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-                turnGPSOff();
+                turnGPSOff(main.this);
 
 
 
@@ -74,15 +74,15 @@ public class main extends AppCompatActivity {
          );
 
         }
-    private void turnGPSOff(){
-        String provider = Settings.Secure.getString(getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+    public static void turnGPSOff(Context context){
+        String provider = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
 
         if(provider.contains("gps")){
             final Intent poke = new Intent();
             poke.setClassName("com.android.settings", "com.android.settings.widget.SettingsAppWidgetProvider");
             poke.addCategory(Intent.CATEGORY_ALTERNATIVE);
             poke.setData(Uri.parse("3"));
-            sendBroadcast(poke);
+            context.sendBroadcast(poke);
         }
     }
 
@@ -101,8 +101,13 @@ public class main extends AppCompatActivity {
             int id = item.getItemId();
 
             //noinspection SimplifiableIfStatement
-            if (id == R.id.action_settings) {
+            if (id == R.id.info11) {
                 Intent i=new Intent(this, info.class);
+                startActivity(i);
+                return true;
+
+            }else if(id == R.id.action_settings){
+                Intent i=new Intent(this, setting.class);
                 startActivity(i);
                 return true;
 
